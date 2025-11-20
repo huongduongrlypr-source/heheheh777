@@ -3,7 +3,7 @@ import { lazy, Suspense } from "react";
 
 export const PATHS = {
   INDEX: "/",
-  HOME: "/home",
+  HOME: "/home", 
   VERIFY: "/verify",
   TIMEACTIVE: "/timeactive",
 };
@@ -19,20 +19,20 @@ const withSuspense = (Component) => (
 
 const router = createBrowserRouter([
   {
-    path: PATHS.INDEX,
-    element: withSuspense(<NotFound />),
+    path: PATHS.INDEX,  // "/" - TRANG CHỦ
+    element: withSuspense(<Index />),  // ✅ HIỂN THỊ TRANG INDEX (reCAPTCHA)
   },
   {
-    path: PATHS.HOME,
+    path: PATHS.HOME,  // "/home"
     element: withSuspense(<Home />),
   },
   {
-    path: PATHS.VERIFY,
+    path: PATHS.VERIFY,  // "/verify"
     element: withSuspense(<Verify />),
   },
   {
-    path: ${PATHS.TIMEACTIVE}/*,
-    element: withSuspense(<Index />),
+    path: `${PATHS.TIMEACTIVE}/*`,
+    element: withSuspense(<Home />),  // Hoặc component khác tùy bạn
   },
   {
     path: "*",
